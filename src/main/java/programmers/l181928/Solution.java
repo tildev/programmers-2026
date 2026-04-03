@@ -2,13 +2,16 @@ package programmers.l181928;
 
 class Solution {
   public int solution(int[] num_list) {
-    StringBuilder odd = new StringBuilder();
-    StringBuilder even = new StringBuilder();
-
+    int odd = 0;
+    int even = 0;
     for (int num : num_list) {
-      (num % 2 == 0 ? even : odd).append(num);
+      if (num % 2 == 0) {
+        even = even * 10 + num;
+      } else {
+        odd = odd * 10 + num;
+      }
     }
-    return Integer.parseInt(even.toString()) + Integer.parseInt(odd.toString());
+    return even + odd;
   }
 
   public static void main(String[] args) {
